@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storyteller</title>
+    <link rel="icon" type="image/x-icon" href="./assets/medium-icon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4a002b7226.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body class="bg-white text-gray-900">
+    <nav
+      class="bg-white border-b-[1px] py-6 px-[20px] md:px-[250px] flex justify-between items-center"
+    >
+      <a href="dashboard.html" class="text-2xl font-bold font-[Georgia]"
+        >Storyteller</a
+      >
+      <div>
+        <a
+          href="create.html"
+          class="px-4 py-2 text-gray-700 hover:text-gray-500"
+          ><i class="fa-regular fa-pen-to-square"></i
+        ></a>
+        <a
+          href="#"
+          id="logout-link"
+          class="px-4 py-2 text-gray-700 hover:text-gray-500"
+          >Sign out</a
+        >
+      </div>
+    </nav>
+
+    <div class="flex">
+      <aside
+        id="default-sidebar"
+        class="hidden sm:block left-0 z-1 ml-[200px] w-64 h-screen border-r-[1px] transition-transform -translate-x-full sm:translate-x-0 mt-[50px]"
+        aria-label="Sidebar"
+      >
+        <div class="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-800">
+          <ul class="space-y-5 font-medium">
+            <li>
+              <a
+                href="#"
+                class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group"
+              >
+                <i class="fa-solid fa-list"></i>
+                <span class="flex-1 ms-3 whitespace-nowrap"
+                  >Recommended topics</span
+                >
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-category="Artificial Intelligence"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >Artificial Intelligence</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                data-category="Game Development"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >Game Development</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                data-category="Programming Languages"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >Programming</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                data-category="Data Science"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >Data Science</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                data-category="Blockchain"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >Blockchain</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                data-category="DevOps"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >DevOps</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                onclick="filterPosts('all')"
+                class="bg-gray-200 hover:bg-gray-300 text-gray-900 font-light dark:text-white py-2 px-4 ml-[40px] rounded-full"
+                >All</a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <div
+        class="p-4 sm:px-6 lg:px-8 flex-1 mt-12 md:flex justify-center overflow-x-hidden"
+      >
+        <div class="p-6 w-full max-w-6xl mx-auto">
+          <div class="flex space-x-4 mb-6 justify-start">
+            <button
+              onclick="filterPosts('all')"
+              class="allPosts-btn px-4 py-2 font-semibold text-gray-600 bg-white focus:border-b-2 border-gray-900 hover:text-gray-900"
+            >
+              All Posts
+            </button>
+            <button
+              onclick="filterPosts('yourPosts')"
+              class="myPosts-btn px-4 py-2 font-semibold text-gray-600 bg-white focus:border-b-2 border-gray-900 hover:text-gray-900"
+            >
+              My Posts
+            </button>
+          </div>
+          <div
+            id="postsContainer"
+            class="space-y-6 overflow-y-auto overflow-x-hidden max-h-[80vh] p-4 w-full"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <script src="scripts.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    </footer>
+  </body>
+</html>

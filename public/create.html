@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Write your post</title>
+    <link rel="icon" type="image/x-icon" href="./assets/medium-icon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4a002b7226.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="bg-white text-gray-900">
+    <nav
+      class="bg-white border-b-[1px] border-black py-6 px-[20px] md:px-[250px] flex justify-between items-center"
+    >
+      <a href="dashboard.html" class="text-2xl font-bold font-[Georgia]"
+        >Storyteller</a
+      >
+
+      <div>
+        <button
+          type="button"
+          id="publish-btn"
+          class="px-3 py-1 bg-[#34ab45] hover:bg-green-400 text-white rounded-3xl hover:bg-gray-500"
+        >
+          Publish
+        </button>
+      </div>
+    </nav>
+    <div id="message-container" class="text-center py-2"></div>
+
+    <div class="flex flex-wrap w-full mt-[50px]">
+      <form class="w-full ml-[20px] md:ml-[200px]">
+        <div class="grid grid-cols-4 gap-3">
+          <div class="flex items-center col-span-3">
+            <i class="fa-solid fa-plus text-gray-900"></i>
+            <input
+              class="appearance-none border-none w-full ml-2 py-2 px-4 text-gray-700 placeholder-input"
+              id="title"
+              type="text"
+              placeholder="Title"
+            />
+          </div>
+          <div class="flex items-start col-span-3">
+            <i class="fa-solid fa-plus text-gray-900 mt-[10px]"></i>
+            <textarea
+              id="story"
+              rows="4"
+              class="block w-full text-sm text-gray-900 appearance-none border-none w-full ml-2 py-2 px-4 text-gray-700 resize-none overflow-hidden placeholder-textarea"
+              oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
+              placeholder="Tell your story..."
+            ></textarea>
+          </div>
+          <div class="flex items-start col-span-3">
+            <i class="fa-solid fa-plus text-gray-900 mt-[5px] mr-[25px]"></i>
+            <select
+              class="border-none w-48 text-[#a0aec0] text-[16px]"
+              name="category-dropdown"
+              id="category-dropdown"
+            >
+              <option value="2">Artificial Intelligence</option>
+              <option value="5">Game Development</option>
+              <option value="6">Programming</option>
+              <option value="4">Data Science</option>
+              <option value="3">Blockchain</option>
+              <option value="1">DevOps</option>
+            </select>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <p
+        class="copyright flex justify-center fixed inset-x-0 bottom-0 p-6 border-t-[1px] border-black text-white md:text-black bg-black md:bg-white"
+      >
+        Storyteller © 2025
+      </p>
+      <script src="scripts.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+    </footer>
+  </body>
+</html>

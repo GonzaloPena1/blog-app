@@ -1,0 +1,18 @@
+.placeholder-input::placeholder {
+  font-size: 28px;
+  color: #a0aec0;
+}
+
+.placeholder-textarea::placeholder {
+  font-size: 20px;
+  color: #a0aec0;
+}
+
+#message-container {
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
