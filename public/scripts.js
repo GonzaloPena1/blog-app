@@ -90,7 +90,7 @@ function register() {
   const email = emailInput.value;
   const password = passwordInput.value;
 
-  fetch("http://localhost:3001/api/users", {
+  fetch("https://blog-app-a1a9.onrender.com/api/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ username, email, password }),
@@ -121,7 +121,7 @@ function login() {
   const email = emailInput.value;
   const password = passwordInput.value;
 
-  fetch("http://localhost:3001/api/users/login", {
+  fetch("https://blog-app-a1a9.onrender.com/api/users/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -142,7 +142,7 @@ function login() {
 
 // Logout
 function logout() {
-  fetch("http://localhost:3001/api/users/logout", {
+  fetch("https://blog-app-a1a9.onrender.com/api/users/logout", {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
   })
@@ -178,7 +178,7 @@ function createPost() {
     postedBy,
   };
 
-  fetch("http://localhost:3001/api/posts", {
+  fetch("https://blog-app-a1a9.onrender.com/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -202,18 +202,24 @@ function createPost() {
 // Load posts
 async function loadPosts(filter = "all") {
   try {
-    const postsResponse = await fetch("http://localhost:3001/api/posts", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const postsResponse = await fetch(
+      "https://blog-app-a1a9.onrender.com/api/posts",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     let posts = await postsResponse.json();
 
-    const usersResponse = await fetch("http://localhost:3001/api/users", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const usersResponse = await fetch(
+      "https://blog-app-a1a9.onrender.com/api/users",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     const users = await usersResponse.json();
 
     const postsContainer = document.getElementById("postsContainer");
@@ -361,7 +367,7 @@ function showDeleteModal(postId) {
 
 // Update Post
 function updatePost(postId, newTitle, newContent) {
-  fetch(`http://localhost:3001/api/posts/${postId}`, {
+  fetch(`https://blog-app-a1a9.onrender.com/api/posts/${postId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -384,7 +390,7 @@ function updatePost(postId, newTitle, newContent) {
 
 // Delete Post
 function deletePost(postId) {
-  fetch(`http://localhost:3001/api/posts/${postId}`, {
+  fetch(`https://blog-app-a1a9.onrender.com/api/posts/${postId}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
