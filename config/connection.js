@@ -8,7 +8,15 @@ if (process.env.DB_PASSWORD === "ChangeMe!") {
 }
 
 const sequelize = process.env.JAWSDB_URL
-  ? new Sequelize(process.env.JAWSDB_URL)
+  ? new Sequelize(process.env.JAWSDB_URL, {
+      dialect: "mysql", // Add this line
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+      },
+    })
   : new Sequelize(
       process.env.DB_DATABASE,
       process.env.DB_USERNAME,
